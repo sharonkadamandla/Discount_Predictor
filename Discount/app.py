@@ -1,4 +1,5 @@
 from flask import Flask,render_template,request,jsonify
+from main import predictDisease  # Importing the process_data function from main.py
 
 app=Flask(__name__)
 
@@ -6,7 +7,7 @@ app=Flask(__name__)
 def home():
     if request.method == 'POST':
         input_data = request.json.get('input_data')
-        processed_data = "working" # input_data is the variable we can use da 
+        processed_data = predictDisease(input_data)
         return jsonify({'processed_data': processed_data})
     else:
         return render_template('home.html')
