@@ -4,7 +4,7 @@ from scipy.stats import mode
 from sklearn.preprocessing import LabelEncoder
 
 
-def predictDisease(symptom):
+def predictDisease(symptoms):
     
     final_rf_model = pickle.load(open("final_rf_model.pkl", "rb"))
     final_nb_model = pickle.load(open("final_nb_model.pkl", "rb"))
@@ -55,7 +55,7 @@ def predictDisease(symptom):
 	}
     formatted_predictions = "\n".join([f"{key}: {value}" for key, value in predictions.items()])
 
-    return formatted_predictions
+    return predictions
 
 
 
