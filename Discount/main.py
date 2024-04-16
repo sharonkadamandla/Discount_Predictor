@@ -56,6 +56,7 @@ def predictDisease(input_data):
 	}
     formatted_predictions = "\n".join([f"{key}: {value}" for key, value in predictions.items()])
 
-    return input_data
+    return formatted_predictions
+
 
 
