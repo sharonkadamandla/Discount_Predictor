@@ -5,6 +5,17 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from collections import Counter
+
+def mode(values):
+    # Count the occurrences of each value
+    counts = Counter(values)
+    # Find the maximum count
+    max_count = max(counts.values())
+    # Find all values that occur with the maximum count
+    modes = [value for value, count in counts.items() if count == max_count]
+    # Return the modes
+    return modes
 
 
 def predictDisease(symptoms):
@@ -74,7 +85,7 @@ def predictDisease(symptoms):
 
         # Making final prediction by taking mode of all predictions
         all_predictions = [rf_prediction, nb_prediction, svm_prediction]
-        final_prediction = np.unique(all_predictions)[0]
+        final_prediction = mode(all_predictions)[0]
 
         predictions = {
             "rf_model_prediction": rf_prediction,
