@@ -71,7 +71,7 @@ final_rf_model.fit(X, y)
 
 
 # Reading the test data
-test_data = pd.read_csv("/Users/sharon/Desktop/disease/Testing.csv").dropna(axis=1)
+test_data = pd.read_csv("Discount\disease\Testing.csv").dropna(axis=1)
 
 test_X = test_data.iloc[:, :-1]
 test_Y = encoder.transform(test_data.iloc[:, -1])
