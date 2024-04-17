@@ -1,0 +1,129 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Center Content</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      background-image: url("");
+      background-size: cover; /* Ensure the background image covers the entire body */    }
+
+    .content-container {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    #output_box.placeholder:empty:before {
+      content: attr(placeholder);
+      color: #aaa;
+      font-style: italic;
+    }
+
+    h1 {
+      color: #333333;
+      margin: 0;
+      padding: 10px 0; 
+    }
+
+    h2{
+      margin-left: 15px; 
+      margin-top: 200px; /* Add margin to push the input box down */
+
+    }
+
+    p {
+      color: #666666;
+    }
+
+    #text_input {
+      width: 25%;
+      height: 100px;
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      margin-left: 15px;
+
+    }
+
+    #output_box {
+      width: 30%;
+      min-height: 150px;
+      padding: 10px;
+      margin: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      text-align: left;
+      overflow-wrap: break-word;
+      margin-left: 15px;
+
+    }
+
+    #btn1 {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 15px;
+
+    }
+
+    #btn1:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  </head>
+  <body>
+
+    <div class="content-container">
+      <h1>Disease Prediction Using Machine Learning</h1>
+    </div>
+    <h2> Enter Your Symptoms Here</h2>
+    <input type="text" id="text_input" placeholder="Enter Your Symptoms" maxlength="2000">
+
+    <div id="output_box" class="Output" contenteditable="true" placeholder="Output will appear here"></div>
+    <input type="button" id="btn1" value="Submit">
+
+    <script>
+      const txt1 = document.getElementById('text_input');
+      const button = document.getElementById('btn1');
+      const outputBox = document.getElementById('output_box');
+
+      function displayOutput(data) {
+        document.getElementById("output_box").innerText = data;
+      }
+      
+      button.addEventListener('click', () => {
+        const inputData = txt1.value;
+        fetch('/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ input_data: inputData }),
+        })
+          .then(response => response.json())
+          .then(data => displayOutput(data.processed_data))
+          .catch(error => console.error('Error:', error));
+      });
+    </script>
+
+  </body>
+  </html>
+     
