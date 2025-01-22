@@ -1,6 +1,6 @@
 # Disease Prediction 
 
-Models : RNN, RF, SVM, NB
+Models Used : RNN, RF, SVM, NB
 
 Framework : Flask
 
