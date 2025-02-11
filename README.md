@@ -1,6 +1,15 @@
 # Disease Prediction 
 
-Models Used : RNN, RF, SVM, NB
+## Models Used :
+
+Recurrent Neural Network
+
+Random Forest 
+
+Support Vector Machine
+
+Naive Bayes
+
 
 Framework : Flask
 
