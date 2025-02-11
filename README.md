@@ -1,6 +1,6 @@
 # Disease Prediction 
 
-## Models Used :
+### Models Used 
 
 Recurrent Neural Network
 
@@ -9,6 +9,7 @@ Random Forest
 Support Vector Machine
 
 Naive Bayes
+
 
 
 Framework : Flask
