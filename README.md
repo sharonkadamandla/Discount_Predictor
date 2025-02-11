@@ -1,6 +1,6 @@
 # Disease Prediction 
 
-### Models Used 
+### Models Used :
 
 Recurrent Neural Network
 
